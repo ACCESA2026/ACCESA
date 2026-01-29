@@ -1,0 +1,56 @@
+Array
+(
+    [evidencia] => Array
+        (
+            [name] => Imagen de WhatsApp 2025-12-01 a las 18.52.19_1ef9ba9e.jpg
+            [full_path] => Imagen de WhatsApp 2025-12-01 a las 18.52.19_1ef9ba9e.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php3o8njP
+            [error] => 0
+            [size] => 223950
+        )
+
+)
+
+Array
+(
+    [evidencia] => Array
+        (
+            [name] => 
+            [full_path] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+Array
+(
+    [evidencia] => Array
+        (
+            [name] => 
+            [full_path] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+Array
+(
+    [evidencia] => Array
+        (
+            [name] => 
+            [full_path] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+

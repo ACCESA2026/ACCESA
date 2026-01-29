@@ -1,0 +1,5 @@
+Options +Indexes
+Require all granted
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+  Require all granted
+</FilesMatch>

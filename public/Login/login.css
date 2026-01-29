@@ -1,0 +1,222 @@
+:root{
+  --green-900:#0B4D3D;   /* fondo del panel derecho */
+  --green-850:#0D3F34;   /* tono para tarjeta */
+  --green-800:#0E5E4B;   /* botón */
+  --green-700:#12715C;   /* hover */
+  --input:#D9D9D9;       /* como en el mock: gris claro */
+  --white:#FFFFFF;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, Arial, sans-serif;
+  background:#e9ecef;  /* gris exterior */
+}
+
+/* Layout general: dos columnas */
+.wrap{
+  max-width:1040px;
+  margin:24px auto;
+  background:var(--white);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.14);
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+}
+
+/* Columna izquierda (blanca) */
+.left{
+  background:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  padding:32px;
+}
+.left-inner{text-align:center; max-width:360px;}
+.brand-stack{
+  display:flex; align-items:center; justify-content:center;
+  gap:12px; margin-bottom:10px; color:#0B4D3D;
+}
+.brand-stack svg{height:34px;width:auto}
+.brand-name{font-weight:700; font-size:32px;}
+.subline{margin-top:4px; font-weight:700;}
+.location,.campus{color:#2c534a; margin:2px 0;}
+.social{display:flex; gap:16px; justify-content:center; margin-top:28px;}
+.social a{
+  display:inline-flex; width:32px;height:32px;
+  align-items:center; justify-content:center;
+  border-radius:50%; border:1px solid #d3dedc;
+}
+
+/* Columna derecha (verde) */
+.right{
+  background:var(--green-900);
+  color:var(--white);
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding:36px 24px 28px;
+}
+
+/* Logo arriba centrado exactamente */
+.top-brand.center{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:30px;
+  margin-bottom:20px;
+  filter: brightness(0) invert(1);
+}
+.top-brand.center img{
+  height:auto;
+  width: 160px;    /* tamaño fijo igual a la maqueta */
+  max-width: 90%;
+  display:block;
+}
+.logo-left {
+  height: 130px;   /* ajusta según el tamaño que quieras */
+  width: auto;
+}
+/* Título BIENVENIDO centrado */
+.welcome{
+  margin:10px 0 12px 0;
+  font-size:22px;
+  letter-spacing:.5px;
+  font-weight:700;
+  text-align:center;
+  color:#FFFFFF;
+}
+
+/* Tarjeta oscura con grandes bordes redondos (como la 1a imagen) */
+.card{
+  background:#0A3A32;      /* un poco más claro que el fondo */
+  width: 82%;
+  max-width: 520px;
+  border-radius:28px;
+  padding:22px 22px 18px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    0 10px 16px rgba(0,0,0,.15);
+}
+
+/* Etiquetas e inputs */
+.form-row{margin:12px 0; font-size:14px;}
+label{display:block; margin:0 0 6px 6px; color:#E8F1EF}
+.input{
+  width:100%;
+  background:var(--input);
+  border:none;
+  border-radius:10px;
+  height:40px;
+  padding:10px 12px;
+  font-size:15px;
+  outline:none;
+}
+.input::placeholder{color:#6b6b6b}
+
+/* Botón */
+.actions{margin-top:14px; display:flex; justify-content:center;}
+.btn{
+  background:#0E5E4B;
+  border:none; color:var(--white);
+  padding:10px 18px; height:40px;
+  border-radius:10px; font-weight:600;
+  cursor:pointer; box-shadow:0 6px 14px rgba(0,0,0,.18);
+}
+.btn:hover{background:#12715C}
+
+/* Enlace recuperar */
+.links{margin-top:12px; text-align:center; font-size:14px;}
+.links a{color:#bfe7db; text-decoration:underline;}
+
+/* Pie alineado al centro, fuera de la tarjeta */
+.footer{
+  margin-top:14px;
+  text-align:center;
+  font-size:12px;
+  color:#d4e5e1;
+}
+.footer a{color:#d4e5e1; text-decoration:underline}
+
+/* Responsivo */
+@media (max-width: 860px){
+  .top-brand.center img{
+    width: clamp(220px, 60vw, 340px);
+  }
+}
+/* === Logo horizontal en esquina superior IZQUIERDA del panel verde === */
+.corner-brand{
+  position: absolute;
+  top: 25px;          /* separa del borde superior */
+  left: 18px;         /* lo manda a la izquierda */
+  z-index: 4;         /* sobre la tarjeta */
+  display: block;
+  pointer-events: none; /* que no estorbe clics del form */
+}
+.corner-brand img{
+  height: 43px;       /* tamaño del logo (ajusta a tu gusto) */
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* blanco como en el menú */
+}
+
+/* Da espacio arriba para que el logo no se superponga con "BIENVENIDO" */
+.right{
+  padding-top: 100px !important;   /* antes tenías ~36px */
+}
+
+/* (Opcional) en pantallas pequeñas, reduce un poco el logo */
+@media (max-width: 520px){
+  .corner-brand img{ height: 44px; }
+  .right{ padding-top: 96px !important; }
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    display: block;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .left {
+    display: none; /* Oculta columna izquierda en móviles */
+  }
+
+  .right {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px 20px;
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%;
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .footer {
+    margin-top: 20px;
+    font-size: 13px;
+  }
+
+  .corner-brand {
+    top: 15px;
+    left: 15px;
+  }
+
+  .corner-brand img {
+    height: 38px;
+  }
+
+  .welcome {
+    font-size: 20px;
+  }
+}

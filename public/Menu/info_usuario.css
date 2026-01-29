@@ -1,0 +1,299 @@
+@import url('menu.css');
+
+/* CONTENEDOR */
+.info-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* TARJETA */
+.info-card {
+    background: var(--tile);
+    color: var(--tile-ink);
+    padding: 32px;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeIn .35s ease-out;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(15px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.info-card h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 26px;
+}
+
+/* FOTO DE PERFIL */
+.foto-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.foto-perfil {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+
+.upload-form {
+    margin-top: 12px;
+}
+
+.btn-subir {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--brand);
+    color: var(--white);
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+}
+
+.btn-subir:hover {
+    background: var(--brand-700);
+}
+
+.btn-subir input {
+    display: none;
+}
+
+/* MENSAJES */
+.msg {
+    margin-top: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.msg.error {
+    color: #b00000;
+}
+
+.msg.success {
+    color: #007826;
+}
+
+/* FILAS DE DATOS */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 700;
+}
+
+.value {
+    font-weight: 600;
+}
+
+.rol {
+    color: var(--brand-600);
+}
+
+/* BOTÓN VOLVER */
+.btn-volver {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    padding: 12px 18px;
+    background: var(--brand);
+    color: var(--white);
+    text-align: center;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: .25s;
+}
+
+.btn-volver:hover {
+    background: var(--brand-700);
+    transform: translateY(-3px);
+}
+
+/* CONTENEDOR DE BOTONES */
+.acciones-foto {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* BOTÓN ELIMINAR FOTO */
+.btn-eliminar {
+    padding: 10px 18px;
+    background: #c62828;
+    color: #fff;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    border: none;
+    box-shadow: var(--shadow);
+    transition: .25s;
+}
+
+.btn-eliminar:hover {
+    background: #a30000;
+    transform: translateY(-2px);
+}
+/* MODAL EDITAR FOTO */
+.modal-foto {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-contenido {
+    background: var(--tile);
+    padding: 22px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.crop-container {
+    width: 100%;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.acciones-modal {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn-cancelar {
+    background: #aaa;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-aceptar {
+    background: var(--brand);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Permitir gestos (arrastrar / zoom) */
+.crop-container {
+    touch-action: none !important;
+}
+
+/* Evitar que algún reset bloquee selección */
+.cropper-container {
+    user-select: none;
+}
+/* =====================================================
+   CROPper.js — OVERRIDE TOTAL DE menu.css
+   ===================================================== */
+
+
+/* Asegurar que el canvas reciba eventos */
+.cropper-container,
+.cropper-canvas,
+.cropper-wrap-box,
+.cropper-drag-box,
+.cropper-face {
+    pointer-events: auto !important;
+}
+
+/* Permitir gestos de arrastre y zoom */
+.crop-container {
+    touch-action: none !important;
+}
+#modalFoto {
+    transform: none !important;
+}
+/* =========================================================
+   🔥 FIX REAL PARA CROPper.js (menu.css rompe eventos)
+   ========================================================= */
+
+/* Reactivar TODOS los eventos dentro del modal */
+#modalFoto,
+
+/* Forzar interacción real */
+.cropper-container,
+.cropper-container *,
+.cropper-canvas,
+.cropper-drag-box,
+.cropper-face,
+.cropper-wrap-box {
+    pointer-events: auto !important;
+    touch-action: none !important;
+}
+
+/* Evitar que transform de menú bloquee clicks */
+.modal-foto,
+.modal-contenido {
+    transform: none !important;
+}
+
+/* Asegurar que el modal esté arriba */
+.modal-foto {
+    z-index: 999999 !important;
+}
+/* =========================================================
+   FIX REAL PARA Cropper.js (SIN ROMPER EL MODAL)
+   ========================================================= */
+
+/* Asegurar que el modal sea interactivo */
+#modalFoto {
+    pointer-events: auto !important;
+    z-index: 999999 !important;
+}
+
+/* Reactivar interacción SOLO en Cropper */
+.cropper-container,
+.cropper-container *,
+.cropper-canvas,
+.cropper-wrap-box,
+.cropper-drag-box,
+.cropper-face {
+    pointer-events: auto !important;
+}
+
+/* Permitir drag y zoom */
+.crop-container {
+    touch-action: none !important;
+}
+
+/* Evitar transform heredado */
+.modal-foto,
+.modal-contenido {
+    transform: none !important;
+}

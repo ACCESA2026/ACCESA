@@ -1,0 +1,147 @@
+:root{
+  --green-900:#0B4D3D;   /* fondo */
+  --green-850:#0F5B4A;   /* pastillas */
+  --white:#FFFFFF;
+  --input:#E9EFEF;
+  --border:#cfe1de;
+  --shadow:rgba(0,0,0,.22);
+  --text:#11332d;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#e9ecef; color:var(--text);
+}
+
+.container{max-width:1100px; margin:0 auto; padding:0 14px}
+
+/* Topbar */
+.topbar{ background:var(--green-900); padding:12px 0 }
+.topbar-row{ display:flex; align-items:center; justify-content:space-between }
+.brand img{ height:44px; width:auto; display:block }
+.top-actions{ display:flex; align-items:center; gap:14px }
+.user-pill{
+  background:#fff; color:#223; border-radius:20px;
+  padding:8px 14px; display:flex; align-items:center; gap:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,.18); font-size:14px;
+}
+.user-dot{ width:10px; height:10px; border-radius:50%; background:#0f5b4a }
+.btn{
+  border:none; cursor:pointer; font-weight:700;
+  border-radius:18px; padding:8px 16px; box-shadow:0 4px 10px rgba(0,0,0,.18);
+}
+.btn-light{ background:#fff; color:#234 }
+
+/* Contenido base */
+.content{ background:var(--green-900); min-height:calc(100vh - 70px); padding:16px 0 28px }
+.title-pill{
+  display:inline-block; background:var(--green-850);
+  color:#fff; font-weight:800; font-size:22px;
+  padding:10px 16px; border-radius:10px; margin:10px 0 16px;
+  box-shadow:0 2px 6px rgba(0,0,0,.18);
+}
+
+/* Tarjeta formulario */
+.card{
+  background:#fff; border-radius:18px; padding:16px;
+  box-shadow:0 10px 22px var(--shadow); margin-bottom:16px;
+}
+
+/* Grid del formulario (3 columnas) */
+.form-grid{
+  display:grid; gap:12px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.field{ display:flex; flex-direction:column; gap:6px }
+.field-wide{ grid-column: 1 / -1 }
+.field.xs{ max-width:140px }
+
+label{ font-size:13px; color:#2e534a; font-weight:700 }
+input, select{
+  height:34px; padding:0 10px; border-radius:8px;
+  border:1px solid var(--border); background:var(--input);
+  outline:none; font-size:14px;
+}
+input:focus, select:focus{ border-color:#79b6a5; background:#f8fbfa }
+
+/* Acciones */
+.actions{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap }
+.btn-success{ background:#1d7a63; color:#fff }
+.btn-success:hover{ filter:brightness(1.05) }
+.btn-secondary{ background:#dfe7e5; color:#133 }
+.btn-secondary:hover{ filter:brightness(0.97) }
+.btn-danger{ background:#D35656; color:#fff; text-decoration:none; display:inline-flex; align-items:center }
+.btn-danger:hover{ filter:brightness(1.05) }
+
+/* Footer */
+.footer{ color:#d9eee9; text-align:center; font-size:12px; margin-top:10px }
+.footer a{ color:#d9eee9 }
+
+/* Responsive */
+@media (max-width: 980px){
+  .form-grid{ grid-template-columns: repeat(2, 1fr) }
+  .field.xs{ max-width:none }
+}
+@media (max-width: 640px){
+  .form-grid{ grid-template-columns: 1fr }
+}
+/* Estilos para el logo en el topbar */
+.topbar .brand img {
+    height: 44px; /* Ajusta la altura según el tamaño deseado */
+    width: auto;  /* Mantiene la proporción de la imagen */
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+/* Filtro para convertir logo verde a blanco */
+.white-logo {
+  filter: brightness(0) invert(1);
+}
+/* Estilos para el logo en el topbar */
+.topbar .brand img {
+  height: 50px;   /* Ajusta la altura del logo */
+  width: auto;    /* Mantiene la proporción del logo */
+  display: block;
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+.foto-perfil {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover; /* Para recortar la imagen si es demasiado grande */
+}
+/* ===============================
+   AJUSTES MÓVIL FINOS
+   =============================== */
+@media (max-width: 640px){
+
+  .container{
+    padding: 0 10px;
+  }
+
+  .card{
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  input, select{
+    height: 42px;
+    font-size: 16px; /* evita zoom iOS */
+  }
+
+  .actions{
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .actions .btn{
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+}

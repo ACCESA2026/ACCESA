@@ -1,0 +1,1 @@
+// Hook para futuras lógicas de registro.

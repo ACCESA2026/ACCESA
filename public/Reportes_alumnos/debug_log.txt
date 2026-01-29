@@ -1,0 +1,36 @@
+Array
+(
+    [matricula] => 250700005-3
+    [nombreAlumno] => RENATA XIMENA ALBORES ZUÑIGA
+    [tipoReporte] => Fumar dentro del plantel
+    [descripcion] => en mi casa tio
+    [fechaIncidente] => 2026-01-12
+)
+
+Array
+(
+    [matricula] => 250700005-3
+    [nombreAlumno] => RENATA XIMENA ALBORES ZUÑIGA
+    [tipoReporte] => Conducta inapropiada
+    [descripcion] => jijijaaaaaaaaaaaaa
+    [fechaIncidente] => 2026-01-12
+)
+
+Array
+(
+    [matricula] => 250700005-3
+    [nombreAlumno] => RENATA XIMENA ALBORES ZUÑIGA
+    [tipoReporte] => Falta de respeto
+    [descripcion] => cotz jijijiajjajjajajjajjoooooooooooo
+    [fechaIncidente] => 2026-01-12
+)
+
+Array
+(
+    [matricula] => 250700005-3
+    [nombreAlumno] => RENATA XIMENA ALBORES ZUÑIGA
+    [tipoReporte] => Incumplimiento de reglamento
+    [descripcion] => por insultar al gobernador 
+    [fechaIncidente] => 2026-01-12
+)
+

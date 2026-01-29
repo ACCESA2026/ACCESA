@@ -1,0 +1,102 @@
+/* responsive.css */
+
+@media (max-width: 768px) {
+  .wrap {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .left {
+    text-align: center;
+  }
+
+  .brand-stack img {
+    width: 80%;
+    height: auto;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row label {
+    margin-bottom: 4px;
+  }
+
+  input.input {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .alert {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+/* =========================
+   REGISTRO ÚNICO - MÓVIL
+   ========================= */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .field,
+  .field-wide {
+    width: 100%;
+  }
+
+  .field label {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .field input,
+  .field select {
+    width: 100%;
+    font-size: 16px; /* evita zoom en iOS */
+    padding: 12px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .actions .btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 14px;
+  }
+
+}

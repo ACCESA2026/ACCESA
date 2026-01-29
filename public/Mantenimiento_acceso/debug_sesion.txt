@@ -1,0 +1,10 @@
+Array
+(
+    [id] => 28
+    [username] => DannyQuien
+    [nombre_completo] => Fabricio Daniel Mollinedo Aguilar
+    [rol_id] => 4
+    [rol] => Administrador
+    [foto] => perfil_28_1768278483.png
+    [login_at] => 1768277899
+)
