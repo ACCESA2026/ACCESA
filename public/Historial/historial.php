@@ -548,4 +548,5 @@ if (res.ok) {
 </script>
 
   </body>
+    <?php ob_end_flush(); ?>
   </html>
