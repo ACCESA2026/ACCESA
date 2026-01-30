@@ -1,5 +1,4 @@
   <?php
-  ob_start();
   session_start();
   if (empty($_SESSION['usuario'])) {
     header('Location: ../Login/login.php');
@@ -548,5 +547,5 @@ if (res.ok) {
 </script>
 
   </body>
-    <?php ob_end_flush(); ?>
+    
   </html>
