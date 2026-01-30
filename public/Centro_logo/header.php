@@ -1,6 +1,7 @@
 <?php
 // ../Centro_logo/header.php
 
+if (session_status() !== PHP_SESSION_ACTIVE) { session_start(); }
 
 $nombreCompleto = $_SESSION['usuario']['nombre_completo']
     ?? ($_SESSION['usuario']['username'] ?? 'Invitado');
