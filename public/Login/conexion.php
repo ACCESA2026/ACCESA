@@ -1,14 +1,15 @@
 <?php
 // /Login/conexion.php
 
-$host = 'sql111.infinityfree.com';
-$dbname = 'if0_40692155_bd_conalep';
-$username = 'if0_40692155';
-$password = 'Cd241001';
+$host = 'ballast.proxy.rlwy.net';
+$port = '50720';
+$dbname = 'railway';
+$username = 'root';
+$password = 'OYcxkaLpHbWOLCQdlRxQhTwFNbbnkDVH';
 
 try {
     $conn = new PDO(
-        "mysql:host=$host;dbname=$dbname;charset=utf8",
+        "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8",
         $username,
         $password,
         [
@@ -17,6 +18,5 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    // En producción, no expongas el error real
     die('Error de conexión a la base de datos.');
 }
