@@ -7,7 +7,6 @@ $dbname = 'railway';
 $username = 'root';
 $password = 'OYcxkaLpHbWOLCQdlRxQhTwFNbbnkDVH';
 
-// Activa esto en local si quieres ver el error exacto
 $debug = false;
 
 try {
@@ -20,12 +19,14 @@ try {
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]
     );
+
+    // Exponer $conn como variable global para otros scripts
+    $GLOBALS['conn'] = $conn;
+
 } catch (PDOException $e) {
     if ($debug) {
-        // Modo debug (descomentar si estás en desarrollo)
-        die('Error de conexión: ' . $e->getMessage());
+        die('Error: ' . $e->getMessage());
     } else {
-        // Modo producción
         die('Error de conexión a la base de datos.');
     }
 }
