@@ -1,0 +1,40 @@
+/* /Registro de Alumnos/index2.css
+   Reutiliza todo desde ../Menu/menu.css y aquí sólo ajustamos lo necesario
+   para la pantalla con 3 tarjetas de “Datos personales”. */
+
+/* Opcional: mantén el mismo ancho de contenedor que en el menú */
+.container{
+  max-width:1200px;
+  margin:8px auto 36px;
+  padding:0 28px;
+}
+
+/* Grilla en 3 columnas por defecto (desktop) */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap:28px;
+  justify-items:center;
+}
+
+/* Aseguramos tamaños consistentes de iconos en estas tarjetas */
+.tile .icon{
+  width:64px;
+  height:64px;
+}
+.tile .icon svg{
+  width:38px;
+  height:38px;
+  /* el color (fill) ya lo define menu.css con var(--brand) */
+}
+
+/* Responsivo como en el menú */
+@media (max-width: 1024px){
+  .grid{ grid-template-columns: repeat(3, minmax(220px, 1fr)); }
+}
+@media (max-width: 768px){
+  .grid{ grid-template-columns: repeat(2, minmax(180px, 1fr)); gap:18px; }
+}
+@media (max-width: 440px){
+  .grid{ grid-template-columns: 1fr; }
+}

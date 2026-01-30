@@ -1,0 +1,174 @@
+/* ===== Tokens super-compactos ===== */
+:root{
+  --brand:#0B4D3D;
+  --brand-600:#0a4638;
+  --ink:#1f3631;
+  --muted:#55756e;
+  --line:#cfe0db;
+  --chip:#eef6f3;
+  --white:#fff;
+  --panel:#f7faf8;
+
+  --ctrl-h: 28px;
+  --font: 12px;
+  --label: 11px;
+  --gap: 6px;
+  --row-gap: 6px;
+  --shadow:0 8px 14px rgba(0,0,0,.07), 0 2px 3px rgba(0,0,0,.04);
+  --shadow-soft:0 3px 6px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.04);
+  --ring:0 0 0 2px rgba(11,77,61,.16);
+}
+
+/* Fondo */
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, sans-serif;
+  color:var(--ink);
+  background: radial-gradient(1200px 600px at 20% -10%, #0f6a58 0%, var(--brand) 40%, #093f33 100%);
+}
+
+/* Contenedor global */
+.dp-container{
+  max-width:1200px;
+  margin:14px auto 24px;
+  padding:0 14px;
+}
+
+/* Barra */
+.page-bar{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:12px;
+}
+.title{ color:white; font-size:18px; font-weight:800 }
+
+/* Botones */
+.btn{
+  height:28px; display:inline-flex; align-items:center;
+  padding:0 10px; border-radius:8px;
+  font-size:12px; cursor:pointer; text-decoration:none;
+}
+.btn.primary{ background:var(--brand); color:white }
+.btn.ghost{ border:1px solid rgba(255,255,255,.4); color:white }
+
+/* Paneles */
+.panel{
+  background:var(--panel); border-radius:12px;
+  border:1px solid var(--line); padding:12px;
+  box-shadow:var(--shadow);
+}
+.panel-title{
+  font-size:16px; font-weight:800;
+  color:#2b4f47; text-align:center; margin-bottom:10px;
+}
+
+/* Campos */
+.field{ display:flex; flex-direction:column; }
+.field label{
+  font-size:var(--label); font-weight:700; margin-bottom:3px; color:#3b5c55;
+}
+.field input,
+.field select{
+  height:var(--ctrl-h); font-size:var(--font);
+  border-radius:8px; border:1px solid #dfece7;
+  padding:5px 8px; background:white;
+}
+
+/* Grillas */
+.grid{ display:grid; gap:var(--gap); }
+.g3{ grid-template-columns:repeat(3,1fr); }
+.g2{ grid-template-columns:repeat(2,1fr); }
+
+/* ACCIONES */
+.actions{ display:flex; justify-content:flex-end; margin-top:10px }
+
+/* ========================= */
+/*     TABLA REPARADA        */
+/* ========================= */
+
+.table-panel{ margin-top:20px }
+
+/* Encabezado */
+.table-head{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:8px;
+}
+.filter{
+  width:240px; height:28px;
+  border-radius:999px; padding:5px 10px;
+  border:1px solid #dfece7;
+}
+
+/* 📌 Scroll vertical independiente en la tabla */
+.table-wrap{
+  width:100%;
+  max-height:400px;   /* ← Puedes subir o bajar este valor */
+  overflow-y:auto;     /* ← Scroll vertical */
+  overflow-x:auto;     /* ← Scroll horizontal */
+  border-radius:10px;
+  border:1px solid #cfe0db;
+  background:white;
+  cursor:grab;
+}
+
+.table-wrap:active{
+  cursor:grabbing;
+}
+
+/* 🔥 FIX 2: TABLA REAL Y COMPACTA */
+.table{
+  width:max-content;
+  min-width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+
+/* Encabezados */
+.table thead{
+  background:#e6f4f0;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.table thead th{
+  padding:8px 10px;
+  text-align:left;
+  color:#0b4d3d;
+  font-size:12px;
+  font-weight:800;
+  border-bottom:2px solid #cfe0db;
+  white-space:nowrap;
+}
+
+/* Filas */
+.table tbody tr{
+  border-bottom:1px solid #e3efea;
+}
+.table tbody td{
+  padding:7px 10px;
+  white-space:nowrap;
+}
+
+/* Resaltar fila al pasar mouse */
+.table tbody tr:hover{
+  background:#f3faf7;
+}
+
+/* Texto vacío */
+.empty{
+  text-align:center;
+  padding:14px 6px;
+  color:#7a9a92;
+  font-weight:600;
+}
+
+/* ========================== */
+/*      RESPONSIVE            */
+/* ========================== */
+
+@media (max-width:780px){
+  .g3{ grid-template-columns:1fr; }
+  .g2{ grid-template-columns:1fr; }
+  .filter{ width:100%; }
+  .table-wrap{ margin-top:10px; }
+}
