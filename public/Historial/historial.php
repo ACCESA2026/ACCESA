@@ -1,14 +1,12 @@
   <?php
   session_start();
+
   if (empty($_SESSION['usuario'])) {
     header('Location: ../Login/login.php');
     exit;
   }
 
   	require_once '../Login/conexion.php';
-
-
-
 
   /* ================================
     CONSULTA PRINCIPAL DEL HISTORIAL
