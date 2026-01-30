@@ -18,5 +18,11 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    die('Error: ' . $e->getMessage());
+    if ($debug) {
+        // Modo debug (descomentar si estás en desarrollo)
+        die('Error de conexión: ' . $e->getMessage());
+    } else {
+        // Modo producción
+        die('Error de conexión a la base de datos.');
+    }
 }
