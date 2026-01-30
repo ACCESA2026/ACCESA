@@ -7,7 +7,7 @@ if (empty($_SESSION['usuario'])){
   exit;
 }
 
-requiere_once '../Login/conexion.php';
+require_once '../Login/conexion.php';
 /* ================================
    CONSULTA PRINCIPAL DEL HISTORIAL
 ================================== */
