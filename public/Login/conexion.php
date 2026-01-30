@@ -1,10 +1,10 @@
 <?php
 // /Login/conexion.php
 
-$host = 'sql111.infinityfree.com';
-$dbname = 'if0_40692155_bd_conalep';
-$username = 'if0_40692155';
-$password = 'Cd241001';
+$host = 'ballast.proxy.rlwy.net';
+$dbname = 'bd_conalep';
+$username = 'root';
+$password = 'OYcxkaLpHbWOLCQdlRxQhTwFNbbnkDVH';
 
 try {
     $conn = new PDO(
