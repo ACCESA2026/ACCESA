@@ -1,7 +1,6 @@
   <?php
-
-  session_start();
   ob_start();
+  session_start();
   if (empty($_SESSION['usuario'])) {
     header('Location: ../Login/login.php');
     exit;
