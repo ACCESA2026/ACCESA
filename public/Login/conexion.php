@@ -2,7 +2,7 @@
 // /Login/conexion.php
 
 $host = 'ballast.proxy.rlwy.net';
-$dbname = 'bd_conalep';
+$dbname = 'railway';
 $username = 'root';
 $password = 'OYcxkaLpHbWOLCQdlRxQhTwFNbbnkDVH';
 
