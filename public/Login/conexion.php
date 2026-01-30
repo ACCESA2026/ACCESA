@@ -7,6 +7,9 @@ $dbname = 'railway';
 $username = 'root';
 $password = 'OYcxkaLpHbWOLCQdlRxQhTwFNbbnkDVH';
 
+// Activa esto en local si quieres ver el error exacto
+$debug = false;
+
 try {
     $conn = new PDO(
         "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
