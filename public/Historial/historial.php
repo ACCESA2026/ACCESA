@@ -2,12 +2,13 @@
 ob_start();
 session_start();
 
-if (empty($_SESSION['usuario'])){
-  header('Location: ../Login/login.php');
-  exit;
+if (empty($_SESSION['usuario'])) {
+    header('Location: ../Login/login.php');
+    exit;
 }
 
 require_once '../Login/conexion.php';
+
 /* ================================
    CONSULTA PRINCIPAL DEL HISTORIAL
 ================================== */
@@ -33,9 +34,6 @@ ORDER BY ca.Fecha DESC, ca.Hora DESC
 $stmt = $conn->query($sql);
 $historial = $stmt->fetchAll();
 
-/* ================================
-   SELECTS
-================================== */
 $grupos = $conn->query("SELECT DsGrupo FROM mgrupo ORDER BY DsGrupo")->fetchAll();
 $planes = $conn->query("SELECT DsPlan FROM mplanestudios ORDER BY DsPlan")->fetchAll();
 ?>
@@ -54,8 +52,9 @@ $planes = $conn->query("SELECT DsPlan FROM mplanestudios ORDER BY DsPlan")->fetc
 
 <?php include '../Centro_logo/header.php'; ?>
 
-<!-- TODO tu HTML aquí -->
+<!-- TODO tu HTML del historial aquí -->
 
 </body>
 </html>
+
 <?php ob_end_flush(); ?>
