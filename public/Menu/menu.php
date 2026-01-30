@@ -27,7 +27,7 @@ if ($esAdmin) {
     'Historial de estudiantes',
     'Control de accesos',
     'Reportes de alumnos',  
-    'Datos personales',
+    'Datos_personales',
     'Configuración de sistema',
     'Gestión de usuarios',
     'Mantenimiento de acceso'
@@ -140,8 +140,8 @@ function tienePermiso($permisos, $modulo) {
 <?php endif; ?>
 
       <!-- Datos personales -->
-<?php if (tienePermiso($permisos, 'Datos personales')): ?>
-    <a class="tile" href="../Datos personales/index2.php" role="button">
+<?php if (tienePermiso($permisos, 'Datos_personales')): ?>
+    <a class="tile" href="../Datos_personales/index2.php" role="button">
         <span class="icon">
             <svg viewBox="0 0 24 24">
                 <path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm2 3v8h14V8H5zm3 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm4 1h5v2h-5v-2zm0 3h4v2h-4v-2z"/>
