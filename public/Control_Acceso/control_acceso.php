@@ -566,28 +566,49 @@ fetch('control_acceso_insertar.php', {
     }
 
 })();
-    
-</script>
   <script>
 (function () {
-  ...
-})();
 
-// ===============================
-// CARGAR HISTORIAL DE ACCESOS
-// ===============================
-function cargarHistorial() {
+  /* ===============================
+     CARGAR HISTORIAL DE ACCESOS
+     =============================== */
+  function cargarHistorial() {
     fetch("historial.php")
-        .then(res => res.text())
-        .then(html => {
-            const body = document.getElementById("historialBody");
-            if (body) body.innerHTML = html;
-        })
-        .catch(err => console.error("Error cargando historial:", err));
-}
+      .then(res => res.text())
+      .then(html => {
+        const body = document.getElementById("historialBody");
+        if (body) body.innerHTML = html;
+      })
+      .catch(err => console.error("Error cargando historial:", err));
+  }
 
-document.addEventListener("DOMContentLoaded", cargarHistorial);
+  document.addEventListener("DOMContentLoaded", cargarHistorial);
+
+  /* ===============================
+     RESTO DE TU CÓDIGO (NO SE TOCA)
+     =============================== */
+
+  const form      = document.getElementById('searchMatForm');
+  const input     = document.getElementById('searchMat');
+  const btnAcceso = document.getElementById('btnAcceso');
+
+  const fMat     = document.getElementById('matricula');
+  const fNombre  = document.getElementById('nombre');
+  const fGrupo   = document.getElementById('grupo');
+  const fCarrera = document.getElementById('carrera');
+  const fHora    = document.getElementById('hora');
+  const fEstado  = document.getElementById('estado');
+
+  const fotoAlumno = document.getElementById("fotoAlumno");
+
+  // 🔥 AQUÍ SIGUE TODO TU CÓDIGO TAL CUAL
+  // 🔥 NO PEGUES OTRO <script> ABAJO
+  // 🔥 NO USES "..." JAMÁS EN JS
+
+})();
 </script>
+  
+
 
 
 </body>
