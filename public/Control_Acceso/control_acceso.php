@@ -566,17 +566,25 @@ fetch('control_acceso_insertar.php', {
     }
 
 })();
-</script>
+      // ===============================
+    // CARGAR HISTORIAL DE ACCESOS
+    // ===============================
     function cargarHistorial() {
-  fetch("historial.php")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("historialBody").innerHTML = html;
-    });
-}
+        fetch("historial.php")
+            .then(res => res.text())
+            .then(html => {
+                const body = document.getElementById("historialBody");
+                if (body) {
+                    body.innerHTML = html;
+                }
+            })
+            .catch(err => console.error("Error cargando historial:", err));
+    }
 
-// Cargar historial al inicio
-cargarHistorial();
+    // Cargar historial al iniciar la página
+    document.addEventListener("DOMContentLoaded", cargarHistorial);
+
+</script>
 
 </body>
 </html>
