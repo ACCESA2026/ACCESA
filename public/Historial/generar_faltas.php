@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('America/Mexico_City');
-require_once '../Login/conexion.php';
+
+require_once __DIR__ . '/../Login/conexion.php';
 
 $hoy = date('Y-m-d');
 $horaActual = date('H:i:s');
@@ -13,13 +14,26 @@ $conf = $conn->query("
   LIMIT 1
 ")->fetch(PDO::FETCH_ASSOC);
 
-if (!$conf) return;
+if (!$conf) {
+  echo "No hay horario activo";
+  exit;
+}
 
-// Si aún no es hora de cierre, no hacer nada
-if ($horaActual <= $conf['HoraCierre']) return;
+// Si aún no es hora de cierre
+if ($horaActual <= $conf['HoraCierre']) {
+  echo "Aún no es hora de generar faltas";
+  exit;
+}
 
 /* 2️⃣ Obtener TODOS los alumnos */
-$alumnos = $conn->query("SELECT Matricula FROM mcredencial")->fetchAll(PDO::FETCH_COLUMN);
+$alumnos = $conn
+  ->query("SELECT Matricula FROM mcredencial")
+  ->fetchAll(PDO::FETCH_COLUMN);
+
+if (!$alumnos) {
+  echo "No hay alumnos";
+  exit;
+}
 
 /* 3️⃣ Obtener alumnos con asistencia HOY */
 $asistieron = $conn->prepare("
@@ -31,28 +45,35 @@ $asistieron->execute([$hoy]);
 $presentes = array_flip($asistieron->fetchAll(PDO::FETCH_COLUMN));
 
 /* 4️⃣ Insertar o actualizar faltas */
+$contador = 0;
+
 foreach ($alumnos as $mat) {
-    if (isset($presentes[$mat])) continue; // Alumno asistió
+  if (isset($presentes[$mat])) continue;
 
-    // Verificar si ya tiene registro en cfaltas
-    $stmt = $conn->prepare("SELECT Faltas FROM cfaltas WHERE Matricula = ?");
-    $stmt->execute([$mat]);
-    $existe = $stmt->fetch(PDO::FETCH_ASSOC);
+  $stmt = $conn->prepare("
+    SELECT Faltas 
+    FROM cfaltas 
+    WHERE Matricula = ?
+  ");
+  $stmt->execute([$mat]);
+  $existe = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($existe) {
-        // Alumno ya tiene registro → sumamos 1 falta
-        $conn->prepare("
-            UPDATE cfaltas 
-            SET Faltas = Faltas + 1,
-                UltimaFecha = ? 
-            WHERE Matricula = ?
-        ")->execute([$hoy, $mat]);
-    } else {
-        // Alumno nuevo → insertamos por primera vez
-        $conn->prepare("
-            INSERT INTO cfaltas 
-            (Matricula, Faltas, FechaUltimaFalta, UltimaFecha) 
-            VALUES (?, 1, ?, ?)
-        ")->execute([$mat, $hoy, $hoy]);
-    }
+  if ($existe) {
+    $conn->prepare("
+      UPDATE cfaltas 
+      SET Faltas = Faltas + 1,
+          UltimaFecha = ?
+      WHERE Matricula = ?
+    ")->execute([$hoy, $mat]);
+  } else {
+    $conn->prepare("
+      INSERT INTO cfaltas 
+      (Matricula, Faltas, FechaUltimaFalta, UltimaFecha)
+      VALUES (?, 1, ?, ?)
+    ")->execute([$mat, $hoy, $hoy]);
+  }
+
+  $contador++;
 }
+
+echo "Proceso finalizado. Faltas generadas: $contador";
