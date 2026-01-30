@@ -18,8 +18,5 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    // En producción, no mostrar el error directamente
-    die('Error de conexión a la base de datos.');
-    // Para debugging:
-    // die('Error: ' . $e->getMessage());
+    die('Error: ' . $e->getMessage());
 }
