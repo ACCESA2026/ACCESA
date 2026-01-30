@@ -568,7 +568,7 @@ fetch('control_acceso_insertar.php', {
 })();
 </script>
     function cargarHistorial() {
-  fetch("historial_accesos.php")
+  fetch("historial.php")
     .then(res => res.text())
     .then(html => {
       document.getElementById("historialBody").innerHTML = html;
