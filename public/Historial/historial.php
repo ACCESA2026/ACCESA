@@ -1,5 +1,5 @@
 <?php
-ob_start();           // ⬅️ BLOQUEA CUALQUIER SALIDA PREVIA
+ob_start();
 session_start();
 
 echo "SESION OK";
