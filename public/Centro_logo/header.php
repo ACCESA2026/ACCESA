@@ -1,6 +1,5 @@
 <?php
 // ../Centro_logo/header.php
-if (session_status() !== PHP_SESSION_ACTIVE) { session_start(); }
 
 $nombreCompleto = $_SESSION['usuario']['nombre_completo']
     ?? ($_SESSION['usuario']['username'] ?? 'Invitado');
@@ -55,7 +54,7 @@ $fechaPHP = date('d/m/Y');
   </div>
       
 </div>
-<style>
+
 <style>
 .dropdown-btn {
     overflow: visible !important;
@@ -72,7 +71,7 @@ $fechaPHP = date('d/m/Y');
 }
 </style>
 
-</style>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
