@@ -27,7 +27,7 @@ if ($esAdmin) {
     'Historial de estudiantes',
     'Control de accesos',
     'Reportes de alumnos',  
-    'Datos personales',
+    'Datos_personales',
     'Configuración de sistema',
     'Gestión de usuarios',
     'Mantenimiento de acceso'
