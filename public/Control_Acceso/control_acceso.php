@@ -566,7 +566,7 @@ fetch('control_acceso_insertar.php', {
     }
 
 })();
-</script>
+
     function cargarHistorial() {
   fetch("historial_accesos.php")
     .then(res => res.text())
@@ -577,6 +577,6 @@ fetch('control_acceso_insertar.php', {
 
 // Cargar historial al inicio
 cargarHistorial();
-
+</script>
 </body>
 </html>
